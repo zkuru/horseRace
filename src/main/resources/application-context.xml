@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="race" class="model.Race">
+        <constructor-arg name="distance" value="#{100 + T(java.lang.Math).random() * 1000}"/>
+        <constructor-arg name="numberOfHorses" value="#{T(java.lang.Math).random() * ((horseService.horses.size() - 3) + 1) + 3}"/>
+    </bean>
+
+    <bean id="raceService" class="service.impl.RaceServiceImpl">
+        <property name="race" ref="race"/>
+        <property name="horseService" ref="horseService"/>
+    </bean>
+
+    <bean id="horseService" class="service.impl.HorseServiceImpl">
+        <property name="horses">
+            <set>
+                <ref bean="horse1"/>
+                <ref bean="horse2"/>
+                <ref bean="horse3"/>
+                <ref bean="horse4"/>
+                <ref bean="horse5"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="horse1" class="model.Horse">
+        <constructor-arg value="SummertimeSadness"/>
+        <constructor-arg ref="rider1"/>
+        <constructor-arg ref="breed1"/>
+        <constructor-arg value="40"/>
+    </bean>
+
+    <bean id="horse2" class="model.Horse">
+        <constructor-arg value="Tsukuru"/>
+        <constructor-arg ref="rider2"/>
+        <constructor-arg ref="breed2"/>
+        <constructor-arg value="40"/>
+    </bean>
+
+    <bean id="horse3" class="model.Horse">
+        <constructor-arg value="Mefistofel"/>
+        <constructor-arg ref="rider3"/>
+        <constructor-arg ref="breed3"/>
+        <constructor-arg value="40"/>
+    </bean>
+
+    <bean id="horse4" class="model.Horse">
+        <constructor-arg value="Begemot"/>
+        <constructor-arg ref="rider2"/>
+        <constructor-arg ref="breed1"/>
+        <constructor-arg value="40"/>
+    </bean>
+
+    <bean id="horse5" class="model.Horse">
+        <constructor-arg value="Faust"/>
+        <constructor-arg ref="rider1"/>
+        <constructor-arg ref="breed2"/>
+        <constructor-arg value="40"/>
+    </bean>
+
+    <bean id="rider1" class="model.Rider">
+        <constructor-arg value="Naruto"/>
+    </bean>
+    <bean id="rider2" class="model.Rider">
+        <constructor-arg value="Sakata"/>
+    </bean>
+    <bean id="rider3" class="model.Rider">
+        <constructor-arg value="JoJo"/>
+    </bean>
+
+    <bean id="breed1" class="model.Breed">
+        <constructor-arg value="Campeiro"/>
+    </bean>
+    <bean id="breed2" class="model.Breed">
+        <constructor-arg value="Arab"/>
+    </bean>
+    <bean id="breed3" class="model.Breed">
+        <constructor-arg value="Brumby"/>
+    </bean>
+
+
+</beans>
