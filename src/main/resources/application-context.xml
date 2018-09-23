@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="race" class="model.Race">
-        <constructor-arg name="distance" value="#{100 + T(java.lang.Math).random() * 1000}"/>
+        <constructor-arg name="distance" value="#{400 + T(java.lang.Math).random() * 1000}"/>
         <constructor-arg name="numberOfHorses" value="#{T(java.lang.Math).random() * ((horseService.horses.size() - 3) + 1) + 3}"/>
     </bean>
 
@@ -29,36 +29,37 @@
         <constructor-arg value="SummertimeSadness"/>
         <constructor-arg ref="rider1"/>
         <constructor-arg ref="breed1"/>
-        <constructor-arg value="40"/>
+        <constructor-arg value="30"/>
     </bean>
 
     <bean id="horse2" class="model.Horse">
         <constructor-arg value="Tsukuru"/>
         <constructor-arg ref="rider2"/>
         <constructor-arg ref="breed2"/>
-        <constructor-arg value="40"/>
+        <constructor-arg value="60"/>
     </bean>
 
     <bean id="horse3" class="model.Horse">
         <constructor-arg value="Mefistofel"/>
         <constructor-arg ref="rider3"/>
         <constructor-arg ref="breed3"/>
-        <constructor-arg value="40"/>
+        <constructor-arg value="70"/>
     </bean>
 
     <bean id="horse4" class="model.Horse">
         <constructor-arg value="Begemot"/>
-        <constructor-arg ref="rider2"/>
+        <constructor-arg ref="rider4"/>
         <constructor-arg ref="breed1"/>
-        <constructor-arg value="40"/>
+        <constructor-arg value="50"/>
     </bean>
 
     <bean id="horse5" class="model.Horse">
         <constructor-arg value="Faust"/>
-        <constructor-arg ref="rider1"/>
+        <constructor-arg ref="rider5"/>
         <constructor-arg ref="breed2"/>
-        <constructor-arg value="40"/>
+        <constructor-arg value="80"/>
     </bean>
+
 
     <bean id="rider1" class="model.Rider">
         <constructor-arg value="Naruto"/>
@@ -68,6 +69,14 @@
     </bean>
     <bean id="rider3" class="model.Rider">
         <constructor-arg value="JoJo"/>
+    </bean>
+
+    <bean id="rider4" class="model.Rider">
+        <constructor-arg value="Mikasa"/>
+    </bean>
+
+    <bean id="rider5" class="model.Rider">
+        <constructor-arg value="SailorMoon"/>
     </bean>
 
     <bean id="breed1" class="model.Breed">

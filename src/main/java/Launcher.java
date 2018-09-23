@@ -12,7 +12,7 @@ public class Launcher {
         Race race = raceService.getRace();
         System.out.println(race.getDistance());
         System.out.println(race.getNumberOfHorses());
-        System.out.println(race.getHorsesInRace());
+        race.getHorsesInRace().stream().forEach(System.out::println);
 
     }
 }
