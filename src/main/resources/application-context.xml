@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
     <bean id="race" class="model.Race">
-        <constructor-arg name="distance" value="#{400 + T(java.lang.Math).random() * 1000}"/>
+        <constructor-arg name="distance" value="#{200 + T(java.lang.Math).random() * 500}"/>
         <constructor-arg name="numberOfHorses" value="#{T(java.lang.Math).random() * ((horseService.horses.size() - 3) + 1) + 3}"/>
     </bean>
 
@@ -25,39 +25,43 @@
         </property>
     </bean>
 
+    <bean id="emulationService" class="service.impl.EmulationServiceImpl">
+        <constructor-arg name="race" ref="race"/>
+    </bean>
+
     <bean id="horse1" class="model.Horse">
         <constructor-arg value="SummertimeSadness"/>
         <constructor-arg ref="rider1"/>
         <constructor-arg ref="breed1"/>
-        <constructor-arg value="30"/>
+        <constructor-arg value="13"/>
     </bean>
 
     <bean id="horse2" class="model.Horse">
         <constructor-arg value="Tsukuru"/>
         <constructor-arg ref="rider2"/>
         <constructor-arg ref="breed2"/>
-        <constructor-arg value="60"/>
+        <constructor-arg value="12"/>
     </bean>
 
     <bean id="horse3" class="model.Horse">
         <constructor-arg value="Mefistofel"/>
         <constructor-arg ref="rider3"/>
         <constructor-arg ref="breed3"/>
-        <constructor-arg value="70"/>
+        <constructor-arg value="11"/>
     </bean>
 
     <bean id="horse4" class="model.Horse">
         <constructor-arg value="Begemot"/>
         <constructor-arg ref="rider4"/>
         <constructor-arg ref="breed1"/>
-        <constructor-arg value="50"/>
+        <constructor-arg value="10"/>
     </bean>
 
     <bean id="horse5" class="model.Horse">
         <constructor-arg value="Faust"/>
         <constructor-arg ref="rider5"/>
         <constructor-arg ref="breed2"/>
-        <constructor-arg value="80"/>
+        <constructor-arg value="12"/>
     </bean>
 
 
